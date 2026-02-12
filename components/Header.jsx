@@ -8,7 +8,7 @@ const Header = () => {
   const links = ["Home", "Courses", "Learning", "Tutors"];
 
   return (
-    <div className="flex items-center justify-between p-4 py-1 bg-white max-w-360 mx-auto">
+    <div className="flex items-center justify-between px-6 md:px-16 py-1 bg-white max-w-360 mx-auto">
       <div>
         <img src="/logoss.png" alt="logo.." className="w-32" />
       </div>
