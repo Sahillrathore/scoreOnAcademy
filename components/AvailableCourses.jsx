@@ -10,6 +10,7 @@ const courses = [
         bg: "bg-[#F6E2A5]",
         buttonColor: "bg-yellow-500 hover:bg-yellow-600",
         circleBg: "bg-yellow-400",
+        circleBorder: "border-yellow-400",
         image: "/childsitting.png",
     },
     {
@@ -21,6 +22,8 @@ const courses = [
         bg: "bg-[#F4C7A1]",
         buttonColor: "bg-orange-500 hover:bg-orange-600",
         circleBg: "bg-orange-400",
+        circleBorder: "border-orange-400",
+
         // image: "/images/board.png",
     },
     {
@@ -32,6 +35,8 @@ const courses = [
         bg: "bg-[#C6E7D6]",
         buttonColor: "bg-green-500 hover:bg-green-600",
         circleBg: "bg-green-500",
+        circleBorder: "border-green-500",
+
         image: "/allstreams.png",
     },
     {
@@ -43,6 +48,7 @@ const courses = [
         bg: "bg-[#D4D6F5]",
         buttonColor: "bg-indigo-500 hover:bg-indigo-600",
         circleBg: "bg-indigo-500",
+        circleBorder: "border-indigo-500",
         // image: "/images/practical.png",
     },
 ];
@@ -50,7 +56,7 @@ const courses = [
 export default function AvailableCourses() {
     return (
         <section className="w-full py-16 bg-gray-50">
-            <div className="max-w-6xl mx-auto px-6">
+            <div className="max-w-6xl mx-auto lg:px-0 px-6">
 
                 {/* Heading */}
                 <h2 className="text-4xl font-bold mb-12 text-gray-700">
@@ -59,11 +65,11 @@ export default function AvailableCourses() {
                 </h2>
 
                 {/* Grid */}
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 gap-6">
                     {courses.map((course, index) => (
                         <div
                             key={index}
-                            className={`${course.bg} rounded-3xl p-8 relative overflow-hidden flex flex-col md:flex-row items-center justify-between`}
+                            className={`${course.bg} rounded-xl p-6 relative overflow-hidden flex flex-col md:flex-row items-center justify-between`}
                         >
                             {/* Left Content */}
                             <div className="max-w-md">
@@ -75,7 +81,7 @@ export default function AvailableCourses() {
                                     {course.title}
                                 </h3>
 
-                                <p className="text-gray-600 mb-6">
+                                <p className="text-gray-600 max-w-xs leading-[1.7] mb-6 text-sm">
                                     {course.description}
                                 </p>
 
@@ -89,20 +95,20 @@ export default function AvailableCourses() {
                             {/* Right Image Circle */}
                             <div className="relative mt-8 md:mt-0">
                                 <div
-                                    className={`w-40 h-40 ${course.circleBg} rounded-full flex items-center justify-center shadow-lg`}
+                                    className={`w-32 h-32 ${course.circleBg} rounded-full flex items-center justify-center shadow-lg`}
                                 >
                                     <Image
                                         src={course.image}
                                         alt={course.title}
-                                        width={120}
-                                        height={120}
+                                        width={100}
+                                        height={100}
                                         className="object-contain"
                                     />
                                 </div>
                             </div>
 
                             {/* Decorative Circle */}
-                            <div className="absolute bottom-0 right-0 w-40 h-40 border-[12px] border-white/30 rounded-full translate-x-10 translate-y-10"></div>
+                            <div className={`absolute -bottom-14 -right-14 w-40 h-40 border-[12px] ${course.circleBorder} rounded-full translate-x-10 translate-y-10`}></div>
                         </div>
                     ))}
                 </div>

@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { BiCheck } from "react-icons/bi";
+import { BiCheck, BiUserCheck, BiUserPlus } from "react-icons/bi";
 import { FaPlay } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { LuUserRoundPen } from "react-icons/lu";
 
 export default function AboutSection() {
     const [open, setOpen] = useState(false);
@@ -12,10 +13,10 @@ export default function AboutSection() {
     return (
         <>
             <section className="relative w-full  py-20 px-6 md:px-16 overflow-hidden my-12">
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 justify-center items-center">
 
                     {/* LEFT SIDE */}
-                    <div className="relative flex justify-center lg:justify-start">
+                    <div className="relative flex justify-center lg:justify-start w-fit">
 
                         {/* Dots top left */}
                         <div className="absolute -top-10 -left-10 grid grid-cols-8 gap-3 opacity-40">
@@ -25,7 +26,7 @@ export default function AboutSection() {
                         </div>
 
                         {/* Main Image */}
-                        <div className="relative w-[420px] h-[520px] rounded-3xl overflow-hidden shadow-xl">
+                        <div className="relative w-[480px] h-[400px] rounded-xl overflow-hidden shadow-xl">
                             <Image
                                 src="/rocket-kid.jpg"   // <-- put your rocket image in public
                                 alt="Student"
@@ -35,7 +36,7 @@ export default function AboutSection() {
                         </div>
 
                         {/* Floating Video Card */}
-                        <div className="absolute -top-10 right-0 bg-white rounded-2xl shadow-xl p-4 w-[280px] animate-float">
+                        <div className="absolute -top-10 -right-12 bg-white rounded-2xl shadow-xl p-4 w-[280px] animate-float">
 
                             <div className="relative w-full h-[140px] rounded-xl overflow-hidden">
                                 <Image
@@ -67,10 +68,10 @@ export default function AboutSection() {
                         {/* Enrolled Card */}
                         <div className="absolute -bottom-8 -left-6 bg-white rounded-2xl shadow-lg p-6 flex items-center gap-4">
                             <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">
-                                +
+                                <LuUserRoundPen size={27} />
                             </div>
                             <div>
-                                <h2 className="text-3xl font-bold">20K+</h2>
+                                <h2 className="text-3xl font-bold">200+</h2>
                                 <p className="text-gray-500">Enrolled Learners</p>
                             </div>
                         </div>
@@ -79,20 +80,20 @@ export default function AboutSection() {
 
                     {/* RIGHT SIDE */}
                     <div>
-                        <p className="text-gray-500 uppercase tracking-wide mb-4">
+                        <p className="text-gray-500 text-sm font-medium uppercase tracking-wide mb-4">
                             About Us
                         </p>
 
-                        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        <h1 className="text-4xl md:text-4xl font-bold leading-tight mb-6">
                             India's best{" "}
                             <span className="text-green-500 relative">
-                                online tuition
+                                online learning
                                 <span className="absolute left-0 bottom-1 w-full h-1 bg-green-300 -z-10"></span>
                             </span>{" "}
-                            for quality education
+                            platform for quality education
                         </h1>
 
-                        <p className="text-gray-500 mb-8">
+                        <p className="text-gray-500 mb-8 max-w-lg">
                             We are committed to providing personalised online classes that
                             cater to the unique learning needs of each student.
                         </p>
@@ -107,7 +108,7 @@ export default function AboutSection() {
                                     <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
                                         <BiCheck size={16} className="text-green-600" />
                                     </div>
-                                    <p className="text-lg font-medium">{item}</p>
+                                    <p className="text-lg text-gray-800 font-semibold">{item}</p>
                                 </div>
                             ))}
                         </div>
@@ -115,7 +116,9 @@ export default function AboutSection() {
                 </div>
 
                 {/* Decorative Circle */}
-                <div className="absolute right-20 bottom-20 w-24 h-24 border-5 border-green-400 rounded-full opacity-60"></div>
+                <div className="absolute right-24 bottom-20 w-24 h-24 border-5 border-green-400 rounded-full opacity-60"></div>
+
+                <div className="absolute -right-24 top-36 w-44 h-44 border-20 border-green-400 rounded-full opacity-60"></div>
             </section>
 
             {/* VIDEO MODAL */}

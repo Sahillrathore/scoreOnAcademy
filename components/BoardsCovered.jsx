@@ -11,7 +11,7 @@ const boardsData = [
 const classes = "from-yellow-500 from-blue-500 from-orange-500 from-purple-500 to-yellow-200 to-blue-200 to-orange-200 to-purple-200"
 const BoardsCovered = () => {
   return (
-    <div className="w-full py-6 rounded-md px-6 md:px-16 flex flex-col justify-center items-center  max-w-5xl mx-auto bg-white/30 backdrop-blur-lg shadow-md -mt-6 ">
+    <div className="w-full py-6 rounded-md px-6 md:px-16 flex flex-col justify-center items-center  max-w-5xl mx-auto bg-white/30 backdrop-blur-sm shadow-md -mt-6 ">
       <h1 className="text-base md:text-xl font-semibold text-white mb-6 text-center bg-[#FFB800] px-4 py-1 rounded-full w-fit">
         Boards Covered
       </h1>
