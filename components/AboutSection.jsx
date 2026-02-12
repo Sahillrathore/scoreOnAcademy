@@ -11,7 +11,7 @@ export default function AboutSection() {
 
     return (
         <>
-            <section className="relative w-full  py-20 px-6 md:px-16 overflow-hidden">
+            <section className="relative w-full  py-20 px-6 md:px-16 overflow-hidden my-12">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
                     {/* LEFT SIDE */}
@@ -89,7 +89,7 @@ export default function AboutSection() {
                                 online tuition
                                 <span className="absolute left-0 bottom-1 w-full h-1 bg-green-300 -z-10"></span>
                             </span>{" "}
-                            website for quality education
+                            for quality education
                         </h1>
 
                         <p className="text-gray-500 mb-8">
@@ -115,7 +115,7 @@ export default function AboutSection() {
                 </div>
 
                 {/* Decorative Circle */}
-                <div className="absolute right-20 bottom-20 w-32 h-32 border-4 border-green-400 rounded-full opacity-60"></div>
+                <div className="absolute right-20 bottom-20 w-24 h-24 border-5 border-green-400 rounded-full opacity-60"></div>
             </section>
 
             {/* VIDEO MODAL */}
