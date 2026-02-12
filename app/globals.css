@@ -8,3 +8,7 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+.stroke-text {
+  -webkit-text-stroke: 1.4px #002855;
+}
