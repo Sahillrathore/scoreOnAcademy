@@ -12,3 +12,38 @@
 .stroke-text {
   -webkit-text-stroke: 1.4px #002855;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out;
+}
+
+.primary-bg {
+  background-color: #013168;
+}
+
+.secondary-bg {
+  background-color: #E31B23;
+}
+
+.primary-text {
+  color: #002855;
+}
+
+.secondary-text {
+  color: #E31B23;
+}
+
+html {
+  scroll-behavior: smooth;
+}

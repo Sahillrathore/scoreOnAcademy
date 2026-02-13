@@ -1,85 +1,106 @@
-"use client";
-import Image from "next/image";
+"use client"
+import Image from "next/image"
+import Link from "next/link"
+import { FaArrowRight } from "react-icons/fa"
+
+const courses = [
+  {
+    id: "iit-focused",
+    title: "IIT Focused Batch",
+    image: "/allstreams.png",
+    points: [
+      "Early IIT-JEE foundation",
+      "Strong conceptual clarity",
+      "Advanced problem solving",
+      "Competitive mindset training"
+    ],
+    description:
+      "Structured syllabus aligned with IIT-JEE preparation from school level."
+  },
+  {
+    id: "40-day-booster",
+    title: "40-Day Exam Booster",
+    image: "/images/40days.png",
+    points: [
+      "Smart revision strategy",
+      "High scoring questions",
+      "Time management mastery",
+      "Exam-focused preparation"
+    ],
+    description:
+      "Intensive 40-day Maths & Science program focused on fast improvement."
+  }
+]
 
 export default function SpecialCourses() {
   return (
-    <section className="w-full py-20 bg-white overflow-hidden relative">
+    <section className="w-full py-24 bg-white relative">
 
-      {/* <div className="absolute z-0 top-[-120px] left-[-120px] w-[400px] h-[400px] bg-green-200 rounded-full blur-3xl opacity-40"></div>
-      <div className="absolute z-0 bottom-[-120px] right-[-120px] w-[400px] h-[400px] bg-orange-200 rounded-full blur-3xl opacity-40"></div> */}
+      <div className="max-w-7xl mx-auto px-6">
 
-      <div className="max-w-6xl mx-auto px-0 grid lg:grid-cols-2 gap-12 items-center">
-
-        {/* LEFT CONTENT */}
-        <div className="w-fit">
-          <h2 className="text-4xl relative z-10 md:text-4xl font-bold text-gray-800 leading-tight mb-6">
-            Our{" "}
-            <span className="text-orange-500">Special </span>
-            Courses
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Our <span className="secondary-text">Special Courses</span>
           </h2>
-
-          <p className="text-gray-600 text-lg leading-relaxed mb-6 max-w-lg">
-            Specially designed academic programs to give students a competitive
-            edge from school itself. Focused preparation, conceptual clarity,
-            and result-driven strategies.
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Specially designed academic programs that build strong fundamentals,
+            improve confidence and deliver measurable academic results.
           </p>
-
-          <div className="w-20 h-1 bg-orange-500 rounded-full"></div>
+          <div className="w-24 h-1 secondary-bg mx-auto mt-6 rounded-full"></div>
         </div>
 
-        {/* RIGHT CARDS */}
-        <div className="grid sm:grid-cols-2 gap-8  w-full">
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-12">
 
-          {/* CARD 1 */}
-          <div className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition duration-300">
-            <div className="mb-5">
-              <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center">
+          {courses.map((course) => (
+            <div
+              key={course.id}
+              className="group border border-gray-200 rounded-3xl p-10 hover:shadow-2xl transition-all duration-500 relative overflow-hidden"
+            >
+              {/* Icon */}
+              <div className="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
                 <Image
-                  src="/allstreams.png"
-                  alt="IIT Focused"
-                  width={40}
-                  height={40}
+                  src={course.image}
+                  alt={course.title}
+                  width={50}
+                  height={50}
                 />
               </div>
+
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                {course.title}
+              </h3>
+
+              <p className="text-gray-600 mb-6">
+                {course.description}
+              </p>
+
+              {/* Feature Points */}
+              <ul className="space-y-3 mb-8">
+                {course.points.map((point, i) => (
+                  <li key={i} className="flex items-center gap-3 text-gray-700">
+                    <div className="w-2 h-2 primary-bg rounded-full"></div>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href={`/courses/${course.id}`}
+                className="inline-flex items-center gap-2 secondary-text font-semibold group-hover:gap-4 transition-all"
+              >
+                View Details
+                <FaArrowRight className="text-sm" />
+              </Link>
+
+              {/* subtle hover border accent */}
+              <div className="absolute bottom-0 left-0 w-0 h-1 secondary-bg transition-all duration-500 group-hover:w-full"></div>
             </div>
-
-            <h3 className="text-xl font-bold text-gray-800 mb-3">
-              IIT Focused Batch
-            </h3>
-
-            <p className="text-gray-600 leading-relaxed">
-              Structured syllabus aligned with IIT-JEE preparation from
-              school level. Students build strong fundamentals early and stay
-              ahead instead of starting preparation after 12th.
-            </p>
-          </div>
-
-          {/* CARD 2 */}
-          <div className="bg-white relative z-10 rounded-2xl p-8 shadow-md hover:shadow-xl transition duration-300">
-            <div className="mb-5">
-              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center">
-                <Image
-                  src="/images/40days.png"
-                  alt="40 Days"
-                  width={40}
-                  height={40}
-                />
-              </div>
-            </div>
-
-            <h3 className="text-xl font-bold text-gray-800 mb-3">
-              40-Day Exam Booster
-            </h3>
-
-            <p className="text-gray-600 leading-relaxed">
-              Intensive 40-day Maths & Science program focused on exam
-              preparation. Quick revision, important questions, smart
-              strategies, and score-boosting techniques.
-            </p>
-          </div>
+          ))}
 
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const courses = [
     {
         badge: "Classes 6 – 8",
+        slug: "foundation-program",
         title: "Foundation Program",
         description:
             "Strong conceptual learning for Maths, Science, English & Social Studies with practical understanding.",
@@ -15,6 +17,7 @@ const courses = [
     },
     {
         badge: "Classes 9 – 10",
+        slug: "board-preparation",
         title: "Board Preparation",
         description:
             "Complete syllabus coverage for all subjects with test series, revisions & exam-focused practice.",
@@ -28,6 +31,7 @@ const courses = [
     },
     {
         badge: "Classes 11 – 12",
+        slug: "all-streams",
         title: "All Streams",
         description:
             "Science, Commerce & Arts streams with in-depth subject clarity and practical-based learning.",
@@ -41,6 +45,7 @@ const courses = [
     },
     {
         badge: "Special Focus",
+        slug: "practical-learning",
         title: "Practical Learning",
         description:
             "Interactive sessions, doubt solving, real-life examples & weekly assessments for better understanding.",
@@ -55,13 +60,13 @@ const courses = [
 
 export default function AvailableCourses() {
     return (
-        <section className="w-full py-16 bg-gray-50">
+        <section id="courses" className="w-full py-16 bg-gray-50 my-12">
             <div className="max-w-6xl mx-auto lg:px-0 px-6">
 
                 {/* Heading */}
                 <h2 className="text-4xl font-bold mb-12 text-gray-700">
                     Discover Available{" "}
-                    <span className="text-orange-500">Courses</span>
+                    <span className="secondary-text">Courses</span>
                 </h2>
 
                 {/* Grid */}
@@ -85,11 +90,13 @@ export default function AvailableCourses() {
                                     {course.description}
                                 </p>
 
-                                <button
-                                    className={`${course.buttonColor} text-white px-6 py-3 rounded-lg font-medium transition`}
+                                <Link
+                                    href={`/courses/${course.slug}`}
+                                    className={`${course.buttonColor} text-white px-6 py-3 rounded-lg font-medium transition inline-block`}
                                 >
                                     {course.button}
-                                </button>
+                                </Link>
+
                             </div>
 
                             {/* Right Image Circle */}

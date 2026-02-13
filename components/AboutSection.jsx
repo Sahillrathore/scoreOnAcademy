@@ -12,7 +12,7 @@ export default function AboutSection() {
 
     return (
         <>
-            <section className="relative w-full  py-20 px-6 md:px-16 overflow-hidden my-12">
+            <section id="about" className="relative w-full  py-20 px-6 md:px-16 overflow-hidden my-12">
                 <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 justify-center items-center">
 
                     {/* LEFT SIDE */}
@@ -136,7 +136,7 @@ export default function AboutSection() {
                         <iframe
                             width="100%"
                             height="100%"
-                            src="https://www.youtube.com/watch?v=-j0rjlfmDx4"
+                            src="https://www.youtube.com/embed/-j0rjlfmDx4?autoplay=1"
                             title="YouTube video"
                             allow="autoplay; encrypted-media"
                             allowFullScreen

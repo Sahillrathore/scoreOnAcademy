@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
     name: "",
-    email: "",
     phone: "",
     message: "",
   });
@@ -35,7 +35,7 @@ export default function ContactSection() {
       if (!res.ok) throw new Error(data.message);
 
       setStatus("success");
-      setForm({ name: "", email: "", phone: "", message: "" });
+      setForm({ name: "", phone: "", message: "" });
     } catch (error) {
       setStatus("error");
     } finally {
@@ -44,29 +44,33 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-[#f8fafc] to-[#eef2f7] overflow-hidden">
+    <section className="relative py-0 bg-gradient-to-br bg-white overflow-hidden">
 
       {/* Decorative Blobs */}
-      <div className="absolute -top-20 left-0 w-72 h-72 bg-green-200 blur-3xl opacity-30 rounded-full"></div>
-      <div className="absolute -bottom-20 right-0 w-72 h-72 bg-orange-200 blur-3xl opacity-30 rounded-full"></div>
+      {/* <div className="absolute -top-20 left-0 w-72 h-72 bg-green-200 blur-3xl opacity-30 rounded-full"></div>
+      <div className="absolute -bottom-20 right-0 w-72 h-72 bg-orange-200 blur-3xl opacity-30 rounded-full"></div> */}
 
-      <div className="relative max-w-5xl mx-auto px-6">
+      <div className="relative max-w-full mx-auto lg:px-0 flex flex-row-reverse gap-0 items-center">
 
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
-            Contact Us
-          </h2>
-          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
-            Have questions or want to book a demo class? Fill out the form below
-            and we will get back to you shortly.
-          </p>
+        <div className="text-center mb-12 flex-1 p-0 w-full relative">
+          <Image src="/students.png" height={300} width={300} alt='img.' className="w-full h-full object-cover" />
+
+          <div className="absolute bg-black/50 flex items-center justify-center flex-col top-0 left-0 h-full w-full">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Contact <span className="secondary-text">Us</span>
+            </h2>
+            <p className="mt-4 text-slate-50 max-w-lg mx-auto">
+              Have questions or want to book a demo class? Fill out the form below
+              and we will get back to you shortly.
+            </p>
+          </div>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white shadow-xl rounded-3xl p-8 md:p-12 space-y-6 border border-gray-100"
+          className="rounded-3xl flex-1 p-8 md:p-12 md:py-8 space-y-6  border-gray-100"
         >
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 grid-cols-2">
             <InputField
               label="Full Name"
               name="name"
@@ -74,23 +78,16 @@ export default function ContactSection() {
               onChange={handleChange}
               required
             />
+
             <InputField
-              label="Email Address"
-              name="email"
-              type="email"
-              value={form.email}
+              label="Phone Number"
+              name="phone"
+              value={form.phone}
               onChange={handleChange}
               required
             />
           </div>
 
-          <InputField
-            label="Phone Number"
-            name="phone"
-            value={form.phone}
-            onChange={handleChange}
-            required
-          />
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -98,11 +95,11 @@ export default function ContactSection() {
             </label>
             <textarea
               name="message"
-              rows="5"
+              rows="3"
               value={form.message}
               onChange={handleChange}
               required
-              className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+              className="w-full rounded-xl border border-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
               placeholder="Write your message here..."
             />
           </div>
@@ -110,7 +107,7 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-4 bg-orange-500 text-white font-semibold rounded-xl shadow-md hover:bg-orange-600 transition duration-300 disabled:opacity-70"
+            className="py-4 px-6 float-right primary-bg cursor-pointer w-fit text-white font-semibold rounded-xl shadow-md  transition duration-300 disabled:opacity-70"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
@@ -144,7 +141,7 @@ function InputField({ label, name, type = "text", value, onChange, required }) {
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+        className="w-full rounded-xl border border-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
         placeholder={label}
       />
     </div>

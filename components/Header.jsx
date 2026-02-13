@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Header = () => {
@@ -8,7 +9,7 @@ const Header = () => {
   const links = ["Home", "Courses", "Learning", "Tutors"];
 
   return (
-    <div className="flex items-center justify-between px-6 md:px-16 py-1 bg-white max-w-360 mx-auto">
+    <div className="flex sticky w-full top-0 z-50 items-center justify-between px-6 md:px-16 py-1 bg-white">
       <div>
         <img src="/logoss.png" alt="logo.." className="w-32" />
       </div>
@@ -16,7 +17,7 @@ const Header = () => {
       <div>
         <ul className="flex gap-8 items-center">
           {links.map((link) => (
-            <li
+            <Link href={`#${link.toLowerCase()}`}
               key={link}
               onClick={() => setActive(link)}
               className="relative group cursor-pointer text-base text-[#013b7e] transition-colors duration-300 hover:text-[#002855] font-medium"
@@ -29,7 +30,7 @@ const Header = () => {
                   active === link ? "w-full" : "w-0 group-hover:w-full"
                 }`}
               ></span>
-            </li>
+            </Link>
           ))}
         </ul>
       </div>

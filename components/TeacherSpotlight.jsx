@@ -4,17 +4,17 @@ import Image from "next/image";
 
 export default function TeacherSpotlight() {
     return (
-        <section className="relative w-full py-24 bg-blue-50 overflow-hidden">
+        <section id="tutors" className="relative w-full py-24 my-12 bg-blue-50 overflow-hidden">
 
             {/* Decorative Background Blobs */}
             <div className="absolute -top-20 -left-20 w-72 h-72 bg-green-200 rounded-full blur-3xl opacity-30"></div>
             <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-orange-200 rounded-full blur-3xl opacity-30"></div>
 
-            <div className="absolute top-20 right-20 w-16 h-16 bg-blue-400 rounded-full"></div>
-            <div className="absolute bottom-44 left-0 w-12 h-12 bg-blue-400 rounded-full"></div>
-            <div className="absolute top-1/3 left-[41.5%] w-8 h-8 bg-blue-400 rounded-full"></div>
-            <div className="absolute bottom-20 right-[22%] w-6 h-6 bg-blue-400 rounded-full"></div>
-            <div className="absolute -bottom-2 right-[72%] w-6 h-6 bg-blue-400 rounded-full"></div>
+            <div className="absolute top-20 right-20 w-16 h-16 bg-blue-400 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-44 left-0 w-12 h-12 bg-blue-400 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 left-[41.5%] w-8 h-8 bg-blue-400 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-20 right-[22%] w-6 h-6 bg-blue-400 rounded-full "></div>
+            <div className="absolute -bottom-2 right-[72%] w-6 h-6 bg-blue-400 rounded-full animate-pulse"></div>
 
             <div className="relative max-w-6xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-20 items-center">
 
@@ -92,7 +92,7 @@ export default function TeacherSpotlight() {
 
                     </div>
 
-                    <button className="mt-10 px-8 py-4 bg-orange-500 text-white rounded-xl shadow-lg hover:bg-orange-600 transition duration-300 hover:scale-105">
+                    <button className="mt-10 px-8 py-4 primary-bg text-white rounded-xl shadow-lg hover:bg-orange-600 transition duration-300 hover:scale-105">
                         Schedule a Demo Class
                     </button>
 

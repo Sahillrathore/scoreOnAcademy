@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const boardsData = [
   { board: "CBSE", img: "/cbselogo.png", color: "yellow-500", color2: "yellow-200" },
-  { board: "ICSE", img: "/icselogo.png", color: "blue-500",  color2: "blue-200" },
-  { board: "ISC", img: "/icselogo.png", color: "orange-500" ,  color2: "orange-200"},
-  { board: "IB", img: "/iblogo.png", color: "purple-500" ,  color2: "purple-200"},
+  { board: "ICSE", img: "/icselogo.png", color: "blue-500", color2: "blue-200" },
+  { board: "ISC", img: "/icselogo.png", color: "orange-500", color2: "orange-200" },
+  { board: "IB", img: "/iblogo.png", color: "purple-500", color2: "purple-200" },
 ];
 
 const classes = "from-yellow-500 from-blue-500 from-orange-500 from-purple-500 to-yellow-200 to-blue-200 to-orange-200 to-purple-200"
@@ -20,7 +20,13 @@ const BoardsCovered = () => {
         {boardsData.map((item, index) => (
           <div
             key={index}
-            className={`group w-full relative rounded-md p-8 py-5 bg-gradient-to-br from-${item.color} to-${item.color2} shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden`}
+            className={`group w-full relative rounded-md p-8 py-5 
+                        bg-gradient-to-br from-${item.color} to-${item.color2} 
+                        shadow-lg hover:shadow-xl 
+                        border-b-4 border-r-4 border-transparent 
+                        hover:-translate-y-3
+                        transition-all duration-500 overflow-hidden`}
+
           >
             {/* Soft Glow Effect */}
             <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-2xl"></div>

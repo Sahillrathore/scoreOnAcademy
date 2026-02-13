@@ -4,7 +4,7 @@ import BoardsCovered from './BoardsCovered'
 
 const Hero = () => {
     return (
-        <div>
+        <div id='#home'>
             <div className="relative w-full h-[550px]">
                 <Image
                     src={banner}
