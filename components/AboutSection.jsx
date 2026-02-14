@@ -86,7 +86,7 @@ export default function AboutSection() {
 
                         <h1 className="text-4xl md:text-4xl font-bold leading-tight mb-6">
                             India's best{" "}
-                            <span className="text-green-500 relative">
+                            <span className="secondary-text relative">
                                 online learning
                                 <span className="absolute left-0 bottom-1 w-full h-1 bg-green-300 -z-10"></span>
                             </span>{" "}

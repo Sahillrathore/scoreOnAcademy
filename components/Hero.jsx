@@ -1,13 +1,12 @@
 import Image from 'next/image'
-import banner from "../public/banner.png"
 import BoardsCovered from './BoardsCovered'
 
 const Hero = () => {
     return (
         <div id='#home'>
-            <div className="relative w-full h-[550px]">
+            <div className="relative w-full h-[430px]">
                 <Image
-                    src={banner}
+                    src='/banner1.png'
                     alt="banner"
                     fill
                     className="object-"
