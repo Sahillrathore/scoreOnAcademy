@@ -90,10 +90,11 @@ const courseData = {
 
 }
 
-export default function CourseDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default function CourseDetail({ params }) {
     const { slug } = use(params)
 
     const course = courseData[slug]
+    console.log(slug)
 
     if (!slug) {
         return <div className="py-20 text-center">Course Not Found</div>
