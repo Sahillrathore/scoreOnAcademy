@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(() => {
 
     const lastShown = localStorage.getItem("contactModalTime")
-    const now = Date.now()
+    const now : number = Date.now()
 
     const oneHour = 2 * 60 * 1000
 
@@ -34,7 +34,7 @@ export default function Home() {
 
       const timer = setTimeout(() => {
         setShowModal(true)
-        localStorage.setItem("contactModalTime", now)
+        localStorage.setItem("contactModalTime", now.toString())
       }, 15000) // show after 15 seconds
 
       return () => clearTimeout(timer)
