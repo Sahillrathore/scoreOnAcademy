@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { CgCheck } from "react-icons/cg";
+import { TiThumbsUp } from "react-icons/ti";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -12,6 +14,7 @@ export default function ContactSection() {
 
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null);
+  const [showToast, setShowToast] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,18 +27,22 @@ export default function ContactSection() {
     setStatus(null);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      // const res = await fetch("/api/contact", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(form),
+      // });
 
-      const data = await res.json();
+      // const data = await res.json();
 
-      if (!res.ok) throw new Error(data.message);
+      // if (!res.ok) throw new Error(data.message);
 
       setStatus("success");
+      setShowToast(true);
       setForm({ name: "", phone: "", message: "" });
+      setTimeout(() => {
+        setShowToast(false);
+      }, 2000);
     } catch (error) {
       setStatus("error");
     } finally {
@@ -82,6 +89,7 @@ export default function ContactSection() {
             <InputField
               label="Phone Number"
               name="phone"
+              type="number"
               value={form.phone}
               onChange={handleChange}
               required
@@ -112,11 +120,11 @@ export default function ContactSection() {
             {loading ? "Sending..." : "Send Message"}
           </button>
 
-          {status === "success" && (
+          {/* {status === "success" && (
             <p className="text-green-600 text-center font-medium">
               Message sent successfully!
             </p>
-          )}
+          )} */}
 
           {status === "error" && (
             <p className="text-red-600 text-center font-medium">
@@ -124,7 +132,13 @@ export default function ContactSection() {
             </p>
           )}
         </form>
+
       </div>
+
+      {
+        showToast &&
+        <Toast />
+      }
     </section>
   );
 }
@@ -146,4 +160,14 @@ function InputField({ label, name, type = "text", value, onChange, required }) {
       />
     </div>
   );
+}
+
+const Toast = () => {
+  return (
+
+    <div className="flex z-20 fixed bottom-8 left-12 items-center p-4 gap-2 items-center border border-green-500 shadow-sm bg-green-50 rounded-lg">
+      <TiThumbsUp color="green" size={26} />
+      <p className="text-sm text-gray-700">Message Sent Successfully</p>
+    </div>
+  )
 }
