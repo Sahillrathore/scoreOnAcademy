@@ -38,7 +38,7 @@ const courses = [
 
 export default function SpecialCourses() {
   return (
-    <section className="w-full py-20 bg-slate-50/50 relative overflow-hidden">
+    <section id="special-courses" className="w-full py-20 bg-slate-50/50 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>

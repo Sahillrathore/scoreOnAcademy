@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import BoardsCovered from "./BoardsCovered";
+import Link from "next/link";
 
 const images = [
-    "/banner1.1.png",
-    "/banner2.png",
-    // "/bann.png",
+    {img: "/banner1.1.png", route: "/#about"},
+    {img: "/banner2.png", route: "/#special-courses"},
 ];
 
 const Hero = () => {
@@ -32,15 +32,15 @@ const Hero = () => {
                     style={{ transform: `translateX(-${current * 100}%)` }}
                 >
                     {images.map((img, index) => (
-                        <div key={index} className="relative min-w-full h-full">
+                        <Link href={img.route} key={index} className="relative min-w-full h-full">
                             <Image
-                                src={img}
+                                src={img.img}
                                 alt={`banner-${index}`}
                                 fill
                                 priority={index === 0}
                                 className="object-cover"
                             />
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

@@ -30,7 +30,7 @@ export default function AboutSection() {
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
 
                     {/* LEFT SIDE: Visual Montage */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -54,7 +54,7 @@ export default function AboutSection() {
                         </div>
 
                         {/* Floating Video Preview Card */}
-                        <motion.div 
+                        <motion.div
                             animate={{ y: [0, -15, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                             className="absolute -top-10 -right-4 md:-right-12 bg-white/80 backdrop-blur-md rounded-[2rem] shadow-2xl p-3 w-[240px] md:w-[240px] border border-white"
@@ -84,7 +84,7 @@ export default function AboutSection() {
                         </motion.div>
 
                         {/* Enrolled Statistics Card */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
@@ -102,7 +102,7 @@ export default function AboutSection() {
 
                     {/* RIGHT SIDE: Content */}
                     <div className="flex flex-col">
-                        <motion.span 
+                        <motion.span
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             className="text-orange-500 text-xs font-black uppercase tracking-[0.2em] mb-4"
@@ -110,7 +110,7 @@ export default function AboutSection() {
                             Future-Ready Education
                         </motion.span>
 
-                        <motion.h1 
+                        <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             className="text-4xl md:text-5xl font-black leading-[1.15] mb-8 text-slate-900"
@@ -122,20 +122,20 @@ export default function AboutSection() {
                             platform for quality education
                         </motion.h1>
 
-                        <motion.p 
+                        <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
                             className="text-base text-slate-600 mb-10 leading-relaxed"
                         >
-                            We don't just teach; we inspire. Our personalized approach ensures 
-                            that every child receives the attention they deserve to excel 
+                            We don't just teach; we inspire. Our personalized approach ensures
+                            that every child receives the attention they deserve to excel
                             academically and beyond.
                         </motion.p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
                             {checkItems.map((item, i) => (
-                                <motion.div 
+                                <motion.div
                                     key={i}
                                     initial={{ opacity: 0, x: 20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
@@ -156,7 +156,7 @@ export default function AboutSection() {
                             transition={{ delay: 0.4 }}
                         >
                             <Link href="https://wa.me/917042662602" target="_blank" className="w-fit bg-slate-900 cursor-pointer flex items-center gap-2 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-200 active:scale-95">
-                                <BiRocket size={22}/> Start Your Journey
+                                <BiRocket size={22} /> Start Your Journey
                             </Link>
                         </motion.div>
                     </div>
@@ -166,13 +166,13 @@ export default function AboutSection() {
             {/* VIDEO MODAL */}
             <AnimatePresence>
                 {open && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 bg-slate-900/80 backdrop-blur-md flex items-center justify-center z-[100] px-4"
                     >
-                        <motion.div 
+                        <motion.div
                             initial={{ scale: 0.9, y: 20 }}
                             animate={{ scale: 1, y: 0 }}
                             exit={{ scale: 0.9, y: 20 }}
