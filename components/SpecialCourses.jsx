@@ -38,28 +38,28 @@ const courses = [
 
 export default function SpecialCourses() {
   return (
-    <section id="special-courses" className="w-full py-20 bg-slate-50/50 relative overflow-hidden">
+    <section id="special-courses" className="w-full md:py-20 py-16 bg-slate-50/50 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         
         {/* Heading Section */}
-        <div className="text-center mb-20">
+        <div className="text-center sm:mb-20 mb-12">
           <span className="inline-block px-4 py-1.5 mb-4 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-100 rounded-full">
             Accelerate Learning
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">Special Courses</span>
           </h2>
-          <p className="text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
+          <p className="text-base text-gray-500 max-w-xl mx-auto leading-relaxed">
             Specially designed academic programs that build strong fundamentals and deliver measurable academic results.
           </p>
         </div>
 
         {/* Course Cards */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 md:gap-8 gap-5">
           {courses.map((course) => (
             <div
               key={course.id}

@@ -52,7 +52,7 @@ export default function Footer() {
             </div>
 
             {/* ================= FOOTER ================= */}
-            <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
+            <div className="max-w-7xl mx-auto md:px-6 px-4 py-16 grid md:grid-cols-3 gap-10">
 
                 {/* Brand */}
                 <div>

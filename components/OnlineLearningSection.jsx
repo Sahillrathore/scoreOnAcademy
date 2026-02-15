@@ -37,29 +37,29 @@ const features = [
 
 export default function OnlineLearningSection() {
     return (
-        <section id="learning" className="relative w-full py-20 my-12 overflow-hidden bg-gradient-to-br from-[#f5f8f3] to-[#eaf3e6]">
+        <section id="learning" className="relative w-full md:py-20 py-16 md:my-12 overflow-hidden bg-gradient-to-br from-[#f5f8f3] to-[#eaf3e6]">
 
             {/* Decorative Blur Background */}
             <div className="absolute top-[-120px] left-[-120px] w-[400px] h-[400px] bg-green-200 rounded-full blur-3xl opacity-40"></div>
             <div className="absolute bottom-[-120px] right-[-120px] w-[400px] h-[400px] bg-orange-100 rounded-full blur-3xl opacity-40"></div>
 
-            <div className="relative max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-3 gap-16 items-center">
+            <div className="relative max-w-7xl mx-auto px-4 lg:px-12 grid lg:grid-cols-3 gap-16 items-center">
 
                 {/* LEFT SIDE CONTENT */}
-                <div className=" w-fit">
-                    <h2 className="text-4xl max-w-sm md:text-5xl font-bold leading-tight text-slate-900">
+                <div className="sm:w-fit">
+                    <h2 className="sm:text-4xl text-3xl sm:max-w-sm md:text-5xl font-bold leading-tight text-slate-900">
                         Online Learning With{" "}
                         <span className="secondary-text">ScoreOn Academy</span>
                     </h2>
 
-                    <p className="mt-6 text-lg max-w-sm text-slate-600 leading-relaxed max-w-lg">
+                    <p className="mt-6 md:text-lg max-w-sm text-slate-600 leading-relaxed max-w-lg">
                         We connect you to expert teachers and peers. Discover what makes us one
                         of the best online tuition platforms.
                     </p>
 
-                    <button className="mt-8 px-6 py-3 secondary-bg text-white rounded-xl shadow-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105">
+                    {/* <button className="mt-8 px-6 py-3 secondary-bg text-white rounded-xl shadow-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105">
                         Explore Courses
-                    </button>
+                    </button> */}
                 </div>
 
                 {/* RIGHT SIDE CARDS */}

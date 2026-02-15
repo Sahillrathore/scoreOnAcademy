@@ -10,7 +10,7 @@ const Header = () => {
   const [active, setActive] = useState("Home");
   const [isOpen, setIsOpen] = useState(false);
 
-  const links = ["Home", "Courses", "Learning", "Tutors"];
+  const links = ["Home", "Courses", "Learning", "Tutors", "Contact"];
 
   return (
     <>

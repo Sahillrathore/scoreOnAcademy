@@ -21,7 +21,7 @@ const testimonials = [
         name: "Naksha Reddy",
         role: "Student",
         rating: 5,
-        review: "Tushar Sir is extremely kind and cooperative. She makes maths feel easy and interesting. I now enjoy studying and scoring well in exams."
+        review: "Tushar Sir is extremely kind and cooperative. He makes maths feel easy and interesting. I now enjoy studying and scoring well in exams."
     },
     {
         id: 3,
@@ -43,14 +43,14 @@ export default function Testimonials() {
     const [selected, setSelected] = useState(null)
 
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="md:py-24 py-20 bg-white relative overflow-hidden">
             {/* Background Accents */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100/50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2" />
 
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-4">
                 {/* Heading */}
-                <div className="mb-20 text-center">
+                <div className="sm:mb-20 mb-12 text-center">
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export default function Testimonials() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-5xl text-gray-900 font-black mb-6 tracking-tight "
+                        className="text-3xl md:text-5xl text-gray-900 font-black sm:mb-6 mb-4 tracking-tight "
                     >
                         Happy Students, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">Successful Futures</span>
                     </motion.h2>
@@ -131,7 +131,7 @@ export default function Testimonials() {
             <AnimatePresence>
                 {selected && (
                     <motion.div
-                        className="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center z-[100] px-6"
+                        className="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center z-[100] md:px-6 px-3"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -142,7 +142,7 @@ export default function Testimonials() {
                             animate={{ scale: 1, y: 0, opacity: 1 }}
                             exit={{ scale: 0.9, y: 20, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-white rounded-[3rem] p-12 max-w-2xl w-full shadow-2xl relative border border-white/20"
+                            className="bg-white rounded-[3rem] md:p-12 p-8 max-w-2xl w-full shadow-2xl relative border border-white/20"
                         >
                             <button
                                 onClick={() => setSelected(null)}

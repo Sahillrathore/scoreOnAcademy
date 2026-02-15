@@ -57,16 +57,16 @@ const courses = [
 
 export default function AvailableCourses() {
     return (
-        <section id="courses" className="w-full py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-6">
+        <section id="courses" className="w-full md:py-24 py-12 bg-white">
+            <div className="max-w-7xl mx-auto px-4">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-6">
+                <div className="flex flex-col md:flex-row md:items-center justify-between sm:mb-16 mb-12 gap-6">
                     <div className="max-w-2xl">
                         <motion.span
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="text-blue-600 font-bold tracking-widest uppercase text-sm"
+                            className="text-blue-600 sm:text-start text-center block font-bold tracking-widest uppercase text-sm"
                         >
                             Educational Excellence
                         </motion.span>
@@ -74,7 +74,7 @@ export default function AvailableCourses() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl font-extrabold mt-2 mb-6 tracking-tight"
+                            className="sm:text-4xl sm:text-start text-center text-3xl md:text-5xl font-extrabold mt-2 sm:mb-6 tracking-tight"
                         >
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">Discover Available</span> Courses
                         </motion.h2>
@@ -82,7 +82,7 @@ export default function AvailableCourses() {
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-gray-500 max-w-sm"
+                        className="text-gray-500 max-w-sm sm:text-start text-center"
                     >
                         Choose the right path for your academic journey with our specialized curriculum.
                     </motion.p>

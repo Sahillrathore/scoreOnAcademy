@@ -48,16 +48,16 @@ const StrengthsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section className="md:py-20 py-16 bg-white">
+      <div className="sm:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center sm:mb-16 mb-12">
           <h2 className="text-base font-semibold text-blue-600 tracking-wide uppercase">Our Strengths</h2>
           <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
             Why Students Choose Us
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-8 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:gap-y-10 gap-y-2 sm:grid-cols-2 gap-x-8 lg:grid-cols-4">
           {strengths.map((strength, index) => (
             <div key={index} className="relative group p-6 bg-gray-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
               <div className="flex items-center justify-center w-14 h-14 mb-5 bg-white rounded-xl shadow-sm group-hover:scale-110 transition-transform duration-300">

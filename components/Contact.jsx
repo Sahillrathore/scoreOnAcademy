@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { CgCheck } from "react-icons/cg";
+import { BiCloset } from "react-icons/bi";
+import { RxCross1 } from "react-icons/rx";
 import { TiThumbsUp } from "react-icons/ti";
 
 export default function ContactSection() {
@@ -14,7 +15,7 @@ export default function ContactSection() {
 
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null);
-  const [showToast, setShowToast] = useState(false);
+  const [showToast, setShowToast] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -23,27 +24,37 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (form.phone.toString().length < 10 || form.phone.toString().length > 10) {
+      console.log(form.phone)
+      setShowToast({ msg: "Enter a 10 digit mobile number", type: "error" })
+      return
+    }
+
     setLoading(true);
     setStatus(null);
 
     try {
-      // const res = await fetch("/api/contact", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(form),
-      // });
 
-      // const data = await res.json();
+      const { name, phone, message } = form;
 
-      // if (!res.ok) throw new Error(data.message);
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          message: message
+        })
+      });
 
       setStatus("success");
-      setShowToast(true);
+      setShowToast({ msg: "Message sent successfully", type: "success" })
       setForm({ name: "", phone: "", message: "" });
-      setTimeout(() => {
-        setShowToast(false);
-      }, 2000);
+      // setTimeout(() => {
+      //   setShowToast(null);
+      // }, 2000);
     } catch (error) {
+      console.error(error)
       setStatus("error");
     } finally {
       setLoading(false);
@@ -51,22 +62,22 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative py-0 bg-gradient-to-br bg-white overflow-hidden">
+    <section id="contact" className="relative my-12 mb-0 mt-16 bg-gradient-to-br bg-gray-100 overflow-hidden">
 
       {/* Decorative Blobs */}
       {/* <div className="absolute -top-20 left-0 w-72 h-72 bg-green-200 blur-3xl opacity-30 rounded-full"></div>
       <div className="absolute -bottom-20 right-0 w-72 h-72 bg-orange-200 blur-3xl opacity-30 rounded-full"></div> */}
 
-      <div className="relative max-w-full mx-auto lg:px-0 flex flex-row-reverse gap-0 items-center">
+      <div className="relative max-w-full mx-auto lg:px-0 flex md:flex-row-reverse flex-col gap-0 items-center">
 
-        <div className="text-center mb-12 flex-1 p-0 w-full relative">
+        <div className="text-center flex-1 p-0 w-full relative">
           <Image src="/students.png" height={300} width={300} alt='img.' className="w-full h-full object-cover" />
 
           <div className="absolute bg-black/50 flex items-center justify-center flex-col top-0 left-0 h-full w-full">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               Contact <span className="secondary-text">Us</span>
             </h2>
-            <p className="mt-4 text-slate-50 max-w-lg mx-auto">
+            <p className="md:text-base text-sm mt-4 text-slate-50 max-w-lg mx-auto">
               Have questions or want to book a demo class? Fill out the form below
               and we will get back to you shortly.
             </p>
@@ -75,9 +86,9 @@ export default function ContactSection() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-3xl flex-1 p-8 md:p-12 md:py-8 space-y-6  border-gray-100"
+          className="rounded-3xl flex-1 p-6 md:p-12 md:py-8 space-y-6  border-gray-100"
         >
-          <div className="grid gap-6 grid-cols-2">
+          <div className="grid md:gap-6 gap-3 grid-cols-2">
             <InputField
               label="Full Name"
               name="name"
@@ -136,8 +147,8 @@ export default function ContactSection() {
       </div>
 
       {
-        showToast &&
-        <Toast />
+        showToast !== null &&
+        <Toast showToast={showToast} setShowToast={setShowToast} />
       }
     </section>
   );
@@ -162,12 +173,20 @@ function InputField({ label, name, type = "text", value, onChange, required }) {
   );
 }
 
-const Toast = () => {
+const Toast = ({ showToast, setShowToast }) => {
+
+  setTimeout(() => {
+    setShowToast(null);
+  }, 2000);
+  
   return (
 
-    <div className="flex z-20 fixed bottom-8 left-12 items-center p-4 gap-2 items-center border border-green-500 shadow-sm bg-green-50 rounded-lg">
-      <TiThumbsUp color="green" size={26} />
-      <p className="text-sm text-gray-700">Message Sent Successfully</p>
+    <div className={`flex z-20 fixed bottom-8 left-12 items-center p-4 gap-2 items-center border ${showToast?.type === "success" ? "border-green-500 bg-green-50" : "bg-red-50 border-red-500"} shadow-sm rounded-lg`}>
+      {
+        showToast?.type === "success" ? <TiThumbsUp className="bg-green-200 rounded-md p-1" color="green" size={26} />
+        : <RxCross1 className="bg-red-200 rounded-md p-1" color="black" size={26} />
+      }
+      <p className="text-sm text-gray-700">{showToast?.msg}</p>
     </div>
   )
 }

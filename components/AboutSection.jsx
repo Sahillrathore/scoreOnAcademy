@@ -22,7 +22,7 @@ export default function AboutSection() {
 
     return (
         <>
-            <section id="about" className="relative w-full py-24 px-6 md:px-16 overflow-hidden bg-white">
+            <section id="about" className="relative w-full md:py-24 py-16 px-4 md:px-16 overflow-hidden bg-white">
                 {/* Background Decorative Elements */}
                 <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-60 -z-10" />
                 <div className="absolute bottom-10 left-10 w-64 h-64 bg-orange-50 rounded-full blur-3xl opacity-60 -z-10" />
@@ -57,9 +57,9 @@ export default function AboutSection() {
                         <motion.div
                             animate={{ y: [0, -15, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-10 -right-4 md:-right-12 bg-white/80 backdrop-blur-md rounded-[2rem] shadow-2xl p-3 w-[240px] md:w-[240px] border border-white"
+                            className="absolute -top-10 -right-4 md:-right-12 bg-white/80 backdrop-blur-md rounded-[2rem] shadow-2xl sm:p-3 p-2 w-[200px] md:w-[240px] border border-white"
                         >
-                            <div className="relative w-full h-[120px] rounded-2xl overflow-hidden group">
+                            <div className="relative w-full sm:h-[120px] h-[100px] rounded-2xl overflow-hidden group">
                                 <Image
                                     src="/video-thumbnail.png"
                                     alt="Live Class Preview"
@@ -79,7 +79,7 @@ export default function AboutSection() {
                             </div>
                             <div className="mt-4 px-2">
                                 <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Live Demo</p>
-                                <p className="text-sm font-bold text-slate-800">1-on-1 Personalized Session</p>
+                                <p className="sm:text-sm font-bold text-slate-800">1-on-1 Personalized Session</p>
                             </div>
                         </motion.div>
 
@@ -88,20 +88,20 @@ export default function AboutSection() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
-                            className="absolute -bottom-8 -left-4 md:-left-10 bg-white rounded-3xl shadow-xl p-6 flex items-center gap-5 border border-slate-50"
+                            className="absolute -bottom-8 -left-4 md:-left-10 bg-white rounded-3xl shadow-xl sm:p-6 p-4 flex items-center sm:gap-5 gap-3 border border-slate-50"
                         >
-                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white shadow-lg shadow-green-200">
-                                <LuUserRoundPen size={28} />
+                            <div className="sm:w-14 sm:h-14 w-10 h-10 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white shadow-lg shadow-green-200">
+                                <LuUserRoundPen className="text-lg sm:text-2xl" />
                             </div>
                             <div>
-                                <h2 className="text-3xl font-black text-slate-900">200+</h2>
-                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-tight">Active Learners</p>
+                                <h2 className="sm:text-3xl text-lg font-black text-slate-900">200+</h2>
+                                <p className="sm:text-sm text-xs font-semibold text-slate-500 uppercase tracking-tight">Active Learners</p>
                             </div>
                         </motion.div>
                     </motion.div>
 
                     {/* RIGHT SIDE: Content */}
-                    <div className="flex flex-col">
+                    <div className="flex flex-col sm:text-start text-center">
                         <motion.span
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
@@ -113,7 +113,7 @@ export default function AboutSection() {
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="text-4xl md:text-5xl font-black leading-[1.15] mb-8 text-slate-900"
+                            className="text-3xl md:text-5xl font-black leading-[1.15] mb-8 text-slate-900"
                         >
                             India's best <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">
@@ -154,6 +154,7 @@ export default function AboutSection() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
+                            className="mx-auto"
                         >
                             <Link href="https://wa.me/917042662602" target="_blank" className="w-fit bg-slate-900 cursor-pointer flex items-center gap-2 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-200 active:scale-95">
                                 <BiRocket size={22} /> Start Your Journey

@@ -2,55 +2,93 @@ import React from "react";
 import Image from "next/image";
 
 const boardsData = [
-  { board: "CBSE", img: "/cbselogo.png", color: "yellow-500", color2: "yellow-200" },
-  { board: "ICSE", img: "/icselogo.png", color: "blue-500", color2: "blue-200" },
-  { board: "ISC", img: "/icselogo.png", color: "orange-500", color2: "orange-200" },
-  { board: "IB", img: "/iblogo.png", color: "purple-500", color2: "purple-200" },
+  {
+    board: "CBSE",
+    img: "/cbselogo.png",
+    gradient: "from-yellow-400/20 to-yellow-600/10",
+    border: "border-yellow-500/30",
+    accent: "bg-yellow-500",
+  },
+  {
+    board: "ICSE",
+    img: "/icselogo.png",
+    gradient: "from-blue-400/20 to-blue-600/10",
+    border: "border-blue-500/30",
+    accent: "bg-blue-500",
+  },
+  {
+    board: "ISC",
+    img: "/icselogo.png",
+    gradient: "from-orange-400/20 to-orange-600/10",
+    border: "border-orange-500/30",
+    accent: "bg-orange-500",
+  },
+  {
+    board: "IB",
+    img: "/iblogo.png",
+    gradient: "from-purple-400/20 to-purple-600/10",
+    border: "border-purple-500/30",
+    accent: "bg-purple-500",
+  },
 ];
 
-const classes = "from-yellow-500 from-blue-500 from-orange-500 from-purple-500 to-yellow-200 to-blue-200 to-orange-200 to-purple-200"
 const BoardsCovered = () => {
   return (
-    <div className="w-full py-6 rounded-md px-6 md:px-16 flex flex-col justify-center items-center  max-w-5xl mx-auto bg-white/30 backdrop-blur-sm shadow-md -mt-6 ">
-      <h1 className="text-base md:text-xl font-semibold text-white mb-6 text-center bg-[#FFB800] px-4 py-1 rounded-full w-fit">
-        Boards Covered
-      </h1>
+    <section className="w-full px-4 py-10 bg-white">
+      <div className="lg:max-w-4xl max-w-3xl mx-auto bg-white/20 shadow-sm backdrop-blur-sm -mt-16 flex flex-col items-center justify-center p-5 rounded-xl">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-        {boardsData.map((item, index) => (
-          <div
-            key={index}
-            className={`group w-full relative rounded-md p-8 py-5 
-                        bg-gradient-to-br from-${item.color} to-${item.color2} 
-                        shadow-lg hover:shadow-xl 
-                        border-b-4 border-r-4 border-transparent 
-                        hover:-translate-y-3
-                        transition-all duration-500 overflow-hidden`}
+        {/* Header Section */}
+        <div className="flex flex-col items-center">
+          {/* <span className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
+            Curriculum
+          </span> */}
+          <h1 className="text-base md:text-xl font-semibold text-white mb-6 text-center bg-[#FFB800] px-4 py-1 rounded-full w-fit">
+            Boards Covered
+          </h1>
+        </div>
 
-          >
-            {/* Soft Glow Effect */}
-            <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-2xl"></div>
+        {/* Grid Container */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mx-auto lg:gap-0 w-full">
+          {boardsData.map((item, index) => (
+            <div
+              key={index}
+              className={`group relative flex flex-col items-center justify-center overflow-hidden 
+                p-6 md:p-6 md:py-6 py-4 lg:max-w-50 rounded-xl border-2 transition-all duration-500 
+                bg-gradient-to-br ${item.gradient} ${item.border}
+                hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:-translate-y-2`}
+            >
+              {/* Animated Background Circle */}
+              <div className={`absolute -bottom-2 -right-2 w-20 h-20 rounded-full opacity-0 
+                opacity-10 transition-opacity duration-500 ${item.accent}`}
+              />
 
-            {/* Content */}
-            <div className="relative flex flex-col items-center justify-center gap-3">
-              <div className="relative w-20 h-20">
-                <Image
-                  src={item.img}
-                  alt={item.board}
-                  fill
-                  className="object-contain bg-white rounded-full"
-                />
+              {/* Logo Container */}
+              <div className="relative w-18 h-18 md:w-24 md:h-24 mb-4 z-10">
+                <div className="absolute inset-0 bg-white rounded-2xl shadow-sm group-hover:shadow-md transition-shadow duration-300" />
+                <div className="relative w-full h-full md:p-4">
+                  <Image
+                    src={item.img}
+                    alt={item.board}
+                    fill
+                    className="object-contain md:p-2 p-1"
+                  />
+                </div>
               </div>
 
-              <h2 className="text-gray-600 text-base font-semibold tracking-wide">
+              {/* Text */}
+              <h3 className="relative z-10 text-sm md:text-xl font-bold text-gray-800 group-hover:text-gray-900">
                 {item.board}
-              </h2>
+              </h3>
+
+              {/* <p className="mt-2 text-xs md:text-sm text-gray-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                View Curriculum
+              </p> */}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default BoardsCovered;
+export default BoardsCovered; 
