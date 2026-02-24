@@ -8,7 +8,7 @@ import Link from "next/link";
 const images = [
   { img: "/banner/banner1.png", route: "/#special-courses", mobileImg: "/banner/mobilebanner1.png" },
   { img: "/banner/banner2.png", route: "/#about", mobileImg: "/banner/mobilebanner2.png" },
-  { img: "/banner/banner3.png", route: "/#whychoseus", mobileImg: "/banner/mobilebanner1.png" },
+  { img: "/banner/banner3.png", route: "/#whychoseus", mobileImg: "/banner/mobilebanner3.png" },
   // { img: "/banner2.png", route: "/#special-courses" },
 ];
 

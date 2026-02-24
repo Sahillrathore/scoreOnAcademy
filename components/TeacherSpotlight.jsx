@@ -78,14 +78,14 @@ export default function TeacherSpotlight() {
                             <div className="mt-1"><BsRainbow className="w-8 h-8 text-orange-500" /></div>
                             <div>
                                 <p className="font-bold text-slate-800 text-sm">Academic Credentials</p>
-                                <p className="text-sm mt-1 text-slate-500">B.Sc., M.A. (Psychology), M.A. (English), B.Ed.</p>
+                                <p className="text-sm mt-1 text-slate-600">B.Sc., M.A. (Psychology), M.A. (English), B.Ed.</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                             <div className="mt-1"><BiCheckCircle className="w-8 h-8 text-green-500" /></div>
                             <div>
                                 <p className="font-bold text-slate-800 text-sm">Specialisation</p>
-                                <p className="text-sm mt-1 text-slate-500">Neurological Disorders & PG Diploma in Guidance & Counseling</p>
+                                <p className="text-sm mt-1 text-slate-600">Neurological Disorders & PG Diploma in Guidance & Counseling</p>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,8 @@ export default function TeacherSpotlight() {
                             "Expert in Mathematics & Science for all classes",
                             "Concept-based, experimental & application-oriented teaching approach",
                             "Career guidance, confidence building & structured performance tracking",
-                            "Concept-based, application-oriented methodology"
+                            "Concept-based, application-oriented methodology",
+                            "Specialized support for students with SLD learning difficulties like Dyslexia & Dyscalculia"
                         ].map((item, index) => (
                             <li key={index} className="flex items-center gap-3 text-slate-700 font-medium">
                                 <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
