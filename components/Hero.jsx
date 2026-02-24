@@ -6,8 +6,10 @@ import BoardsCovered from "./BoardsCovered";
 import Link from "next/link";
 
 const images = [
-  { img: "/banner1.1.png", route: "/#about" },
-  { img: "/banner2.png", route: "/#special-courses" },
+  { img: "/banner/banner1.png", route: "/#special-courses" },
+  { img: "/banner/banner2.png", route: "/#about" },
+  { img: "/banner/banner3.png", route: "/#whychoseus" },
+  // { img: "/banner2.png", route: "/#special-courses" },
 ];
 
 const Hero = () => {
@@ -21,22 +23,17 @@ const Hero = () => {
   }, []);
 
   return (
-    <div id="home" className="w-full bg-gray-100">
-      {/* aspect-[16/9] mobile par image ko natural rakhega.
-         md:aspect-[21/9] desktop par wide dikhayega.
-         Height ab fix nahi hai, width ke saath change hogi.
-      */}
-      <div className="relative w-full aspect-[21/6] overflow-hidden">
+    <div id="home" className="w-full">
+      <div className="relative w-full aspect-[1920/650] overflow-hidden">
 
-        {/* Slides */}
         <div
           className="flex transition-transform duration-700 ease-in-out h-full"
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {images.map((item, index) => (
-            <Link 
-              href={item.route} 
-              key={index} 
+            <Link
+              href={item.route}
+              key={index}
               className="relative min-w-full h-full block"
             >
               <Image
@@ -44,25 +41,21 @@ const Hero = () => {
                 alt={`banner-${index}`}
                 fill
                 priority={index === 0}
-                // 'object-contain' image ko poora dikhayega bina kate
-                // 'w-full h-full' width adjust karne ke liye
-                className="object-contain md:object-cover bg-white" 
+                className="object-cover"
               />
             </Link>
           ))}
         </div>
 
-        {/* Navigation Dots - Positioning adjusted for dynamic height */}
-        <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`h-1.5 md:h-2 transition-all duration-300 rounded-full ${
-                current === index 
-                ? "w-6 md:w-8 bg-blue-600" 
-                : "w-1.5 md:w-2 bg-black/20"
-              }`}
+              className={`h-2 transition-all duration-300 rounded-full ${current === index
+                  ? "w-4 bg-blue-600"
+                  : "w-2 bg-white/50"
+                }`}
             />
           ))}
         </div>

@@ -18,24 +18,80 @@ const testimonials = [
     },
     {
         id: 2,
-        name: "Naksha Reddy",
+        name: "Ishika Singh",
         role: "Student",
         rating: 5,
         review: "Tushar Sir is extremely kind and cooperative. He makes maths feel easy and interesting. I now enjoy studying and scoring well in exams."
     },
     {
         id: 3,
-        name: "Tehseen Javaid",
+        name: "Rohit Verma",
         role: "Parent",
         rating: 5,
         review: "Fantastic experience. My son’s performance improved drastically. The teaching method is systematic, patient and highly effective."
     },
     {
         id: 4,
-        name: "Suba Ashok",
+        name: "Rahul Chauhan",
         role: "Parent",
         rating: 5,
         review: "English became fun and engaging. The feedback given helped my child grow significantly."
+    },
+    {
+        id: 5,
+        name: "Aditi Sharma",
+        role: "Student",
+        rating: 5,
+        review: "Before joining, I struggled with maths concepts. Now everything feels much clearer. Sir explains every topic step-by-step and ensures no doubt is left unresolved."
+    },
+    {
+        id: 6,
+        name: "Vikas Yadav",
+        role: "Parent",
+        rating: 5,
+        review: "The improvement in my daughter’s problem-solving skills is remarkable. The structured approach and regular assessments truly make a difference."
+    },
+    {
+        id: 7,
+        name: "Mehak Jain",
+        role: "Student",
+        rating: 5,
+        review: "Classes are interactive and never boring. Complex chapters are broken down into simple explanations. My confidence in science has increased a lot."
+    },
+    {
+        id: 8,
+        name: "Sandeep Gupta",
+        role: "Parent",
+        rating: 5,
+        review: "Highly professional and disciplined teaching style. My child’s academic performance and overall interest in studies have improved significantly."
+    },
+    {
+        id: 9,
+        name: "Karan Malhotra",
+        role: "Student",
+        rating: 5,
+        review: "Sir focuses on building strong fundamentals. Because of that, I now solve even advanced questions without fear."
+    },
+    {
+        id: 10,
+        name: "Neha Kapoor",
+        role: "Parent",
+        rating: 5,
+        review: "Regular feedback and personal attention make the learning experience exceptional. We are extremely satisfied with the results."
+    },
+    {
+        id: 11,
+        name: "Arjun Patel",
+        role: "Student",
+        rating: 5,
+        review: "The way concepts are connected to real-life examples makes learning easy to understand and remember. My exam scores have improved consistently."
+    },
+    {
+        id: 12,
+        name: "Priya Nair",
+        role: "Parent",
+        rating: 5,
+        review: "A very dedicated teacher who genuinely cares about each student’s growth. The progress we’ve seen in just a few months is impressive."
     }
 ]
 
@@ -43,7 +99,7 @@ export default function Testimonials() {
     const [selected, setSelected] = useState(null)
 
     return (
-        <section className="md:py-24 py-20 bg-white relative overflow-hidden">
+        <section id="testimonials" className="md:py-24 py-20 bg-white relative overflow-hidden">
             {/* Background Accents */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100/50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2" />
@@ -58,7 +114,7 @@ export default function Testimonials() {
                     >
                         Real Stories
                     </motion.p>
-                   
+
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
