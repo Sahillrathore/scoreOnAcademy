@@ -17,6 +17,7 @@ import Footer from "../components/Footer"
 import WhyChoseUs from "../components/WhyChoseUs"
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import VideoTestimonials from "@/components/VideoTestimonials";
 
 export default function Home() {
 
@@ -53,6 +54,7 @@ export default function Home() {
         <SpecialCourses />
         <OnlineLearningSection />
         <Testimonials />
+        {/* <VideoTestimonials/> */}
         <TeacherSpotlight />
         <WhyChoseUs />
         <DemoBanner />
@@ -64,7 +66,7 @@ export default function Home() {
           onClose={() => setShowModal(false)}
         />
 
-        <Link href="https://wa.me/917042662602" target="_blank" className="fixed rounded-full p-3 bottom-7 right-8 bg-green-500">
+        <Link href="https://wa.me/917042662602" target="_blank" className="fixed rounded-full z-50 p-3 bottom-7 right-8 bg-green-500">
           <BsWhatsapp size={30} color="white" />
         </Link>
       </div>
