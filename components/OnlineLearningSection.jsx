@@ -47,7 +47,7 @@ export default function OnlineLearningSection() {
 
                 {/* LEFT SIDE CONTENT */}
                 <div className="sm:w-fit">
-                    <h2 className="sm:text-4xl text-3xl sm:max-w-sm md:text-5xl font-bold leading-tight text-slate-900">
+                    <h2 className="sm:text-4xl text-3xl sm:max-w-sm md:text-5xl font-extrabold leading-tight text-slate-900">
                         Online Learning With{" "}
                         <span className="secondary-text">ScoreOn Academy</span>
                     </h2>

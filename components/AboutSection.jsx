@@ -177,11 +177,11 @@ export default function AboutSection() {
                             initial={{ scale: 0.9, y: 20 }}
                             animate={{ scale: 1, y: 0 }}
                             exit={{ scale: 0.9, y: 20 }}
-                            className="relative w-full max-w-4xl aspect-video bg-black rounded-[2rem] overflow-hidden shadow-2xl"
+                            className="relative w-full max-w-xl h-[90%] bg-black rounded-[2rem] overflow-hidden shadow-2xl"
                         >
                             <button
                                 onClick={() => setOpen(false)}
-                                className="absolute top-5 right-5 z-50 bg-white/20 hover:bg-white text-white hover:text-black rounded-full p-3 transition-all"
+                                className="absolute top-5 right-5 z-50 sm:bg-white/20 bg-black/50 hover:bg-white text-white hover:text-black rounded-full p-3 transition-all"
                             >
                                 <IoClose size={24} />
                             </button>
@@ -189,7 +189,7 @@ export default function AboutSection() {
                             <iframe
                                 width="100%"
                                 height="100%"
-                                src="https://www.youtube.com/embed/-j0rjlfmDx4?autoplay=1"
+                                src="/video/intro-video.mp4"
                                 title="YouTube video"
                                 allow="autoplay; encrypted-media"
                                 allowFullScreen

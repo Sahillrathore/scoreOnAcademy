@@ -35,7 +35,7 @@ const boardsData = [
 const BoardsCovered = () => {
   return (
     <section className="w-full px-4 py-10 bg-white">
-      <div className="lg:max-w-4xl max-w-3xl mx-auto bg-white/20 shadow-sm backdrop-blur-sm -mt-16 flex flex-col items-center justify-center p-5 rounded-xl">
+      <div className="lg:max-w-4xl max-w-3xl mx-auto bg-white/20 shadow-sm backdrop-blur-sm -mt-14 flex flex-col items-center justify-center p-5 rounded-xl">
 
         {/* Header Section */}
         <div className="flex flex-col items-center">
@@ -43,7 +43,7 @@ const BoardsCovered = () => {
             Curriculum
           </span> */}
           <h1 className="text-base md:text-xl font-semibold text-white mb-6 text-center bg-[#FFB800] px-4 py-1 rounded-full w-fit">
-            Boards Covered
+            All Boards, #1 Platform
           </h1>
         </div>
 

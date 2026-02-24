@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { FaStar } from "react-icons/fa"
 import { BsWhatsapp, BsInstagram } from "react-icons/bs"
 import Image from "next/image"
+import Link from "next/link"
 
 const tags = [
     "Professional Teachers",
@@ -73,10 +74,10 @@ export default function Footer() {
                         Quick Links
                     </h4>
                     <ul className="space-y-3 text-sm text-white/70">
-                        <li className="hover:text-white transition cursor-pointer">About Us</li>
-                        <li className="hover:text-white transition cursor-pointer">Courses</li>
-                        <li className="hover:text-white transition cursor-pointer">Testimonials</li>
-                        <li className="hover:text-white transition cursor-pointer">Contact</li>
+                        <Link href="#about" className="hover:text-white transition cursor-pointer block">About Us</Link>
+                        <Link href="#courses" className="hover:text-white transition cursor-pointer block">Courses</Link>
+                        <Link href="#testimonials" className="hover:text-white transition cursor-pointer block">Testimonials</Link>
+                        <Link href="#contact" className="hover:text-white transition cursor-pointer block">Contact</Link>
                     </ul>
                 </div>
 

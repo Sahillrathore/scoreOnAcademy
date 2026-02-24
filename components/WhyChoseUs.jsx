@@ -11,7 +11,7 @@ const StrengthsSection = () => {
       icon: <IoShieldCheckmarkOutline size={32} className="text-blue-600" />,
     },
     {
-      title: "Social Detox Environment",
+      title: "Social Media Detox Environment",
       description: "Our Teachmint integration allows for doubt solving directly in-app, keeping you away from social media distractions.",
       icon: <IoChatbubbleEllipsesOutline size={32} className="text-purple-600" />,
     },
@@ -48,7 +48,7 @@ const StrengthsSection = () => {
   ];
 
   return (
-    <section className="md:py-20 py-16 bg-white">
+    <section id="whychoseus" className="md:py-20 py-16 bg-white">
       <div className="sm:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center sm:mb-16 mb-12">
           <h2 className="text-base font-semibold text-blue-600 tracking-wide uppercase">Our Strengths</h2>
