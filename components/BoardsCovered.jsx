@@ -35,7 +35,7 @@ const boardsData = [
 const BoardsCovered = () => {
   return (
     <section className="w-full px-4 py-10 bg-white">
-      <div className="lg:max-w-4xl max-w-3xl mx-auto bg-white/20 shadow-sm backdrop-blur-sm -mt-14 flex flex-col items-center justify-center p-5 rounded-xl">
+      <div className="lg:max-w-4xl max-w-3xl mx-auto bg-white/20 shadow-sm backdrop-blur-sm sm:-mt-14 flex flex-col items-center justify-center sm:p-5 p-3 rounded-xl">
 
         {/* Header Section */}
         <div className="flex flex-col items-center">
@@ -48,7 +48,7 @@ const BoardsCovered = () => {
         </div>
 
         {/* Grid Container */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mx-auto lg:gap-0 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 sm:gap-4 gap-2 mx-auto lg:gap-0 w-full">
           {boardsData.map((item, index) => (
             <div
               key={index}
@@ -63,7 +63,7 @@ const BoardsCovered = () => {
               />
 
               {/* Logo Container */}
-              <div className="relative w-18 h-18 md:w-24 md:h-24 mb-4 z-10">
+              <div className="relative w-18 h-18 md:w-24 md:h-24 sm:mb-4 mb-2 z-10">
                 <div className="absolute inset-0 bg-white rounded-2xl shadow-sm group-hover:shadow-md transition-shadow duration-300" />
                 <div className="relative w-full h-full md:p-4">
                   <Image
