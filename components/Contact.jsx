@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BiCloset } from "react-icons/bi";
 import { RxCross1 } from "react-icons/rx";
 import { TiThumbsUp } from "react-icons/ti";
@@ -24,38 +24,34 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (form.phone.toString().length < 10 || form.phone.toString().length > 10) {
-      console.log(form.phone)
-      setShowToast({ msg: "Enter a 10 digit mobile number", type: "error" })
-      return
+    if (form.phone.toString().length !== 10) {
+      setShowToast({ msg: "Enter a valid 10 digit mobile number", type: "error" });
+      return;
     }
 
     setLoading(true);
     setStatus(null);
 
     try {
-
-      const { name, phone, message } = form;
-
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name,
-          phone: phone,
-          message: message
-        })
+        body: JSON.stringify(form),
       });
 
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Something went wrong");
+      }
+
       setStatus("success");
-      setShowToast({ msg: "Message sent successfully", type: "success" })
+      setShowToast({ msg: "Message sent successfully", type: "success" });
       setForm({ name: "", phone: "", message: "" });
-      // setTimeout(() => {
-      //   setShowToast(null);
-      // }, 2000);
+
     } catch (error) {
-      console.error(error)
       setStatus("error");
+      setShowToast({ msg: error.message, type: "error" });
     } finally {
       setLoading(false);
     }
@@ -174,19 +170,28 @@ function InputField({ label, name, type = "text", value, onChange, required }) {
 }
 
 const Toast = ({ showToast, setShowToast }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowToast(null);
+    }, 2000);
 
-  setTimeout(() => {
-    setShowToast(null);
-  }, 2000);
-  
+    return () => clearTimeout(timer);
+  }, [setShowToast]);
+
   return (
+    <div
+      className={`flex z-20 fixed bottom-8 left-12 items-center p-4 gap-2 border ${showToast?.type === "success"
+        ? "border-green-500 bg-green-50"
+        : "bg-red-50 border-red-500"
+        } shadow-sm rounded-lg`}
+    >
+      {showToast?.type === "success" ? (
+        <TiThumbsUp className="bg-green-200 rounded-md p-1" size={26} />
+      ) : (
+        <RxCross1 className="bg-red-200 rounded-md p-1" size={26} />
+      )}
 
-    <div className={`flex z-20 fixed bottom-8 left-12 items-center p-4 gap-2 items-center border ${showToast?.type === "success" ? "border-green-500 bg-green-50" : "bg-red-50 border-red-500"} shadow-sm rounded-lg`}>
-      {
-        showToast?.type === "success" ? <TiThumbsUp className="bg-green-200 rounded-md p-1" color="green" size={26} />
-        : <RxCross1 className="bg-red-200 rounded-md p-1" color="black" size={26} />
-      }
       <p className="text-sm text-gray-700">{showToast?.msg}</p>
     </div>
-  )
-}
+  );
+};

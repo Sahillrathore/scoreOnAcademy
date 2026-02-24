@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Score On Academy ®",
+  title: "ScoreOn Academy ®",
   description: "Score On Academy is an online learning platform that offers a wide range of courses and resources to help students excel in their academic and professional pursuits. With a focus on quality education and personalized learning, Score On Academy provides students with the tools and support they need to succeed in their studies and achieve their goals.",
 };
 

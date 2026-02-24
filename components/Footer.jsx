@@ -60,7 +60,7 @@ export default function Footer() {
                     {/* <h3 className="text-2xl font-bold mb-4 tracking-wide">
                         
                     </h3> */}
-                    <Image src="/logoss.png" className="mb-6" width={150} height={150} />
+                    <Image src="/logoss.png" alt="logo." className="mb-6" width={150} height={150} />
 
                     <p className="text-white/70 text-sm leading-relaxed">
                         Empowering students with structured learning, personal attention,

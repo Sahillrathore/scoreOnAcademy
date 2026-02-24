@@ -1,36 +1,103 @@
-import nodemailer from "nodemailer";
+import { connectDB } from "@/lib/mongodb";
+import Contact from "@/models/Contact";
+import { verifyToken } from "@/lib/auth";
+import { cookies } from "next/headers";
 
+
+// ==========================
+// CREATE CONTACT (Public)
+// ==========================
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { name, phone, message } = body;
+    let { name, phone, message } = body;
 
-    console.log(process.env.EMAIL_USER, process.env.EMAIL_PASS);
+    // Trim inputs
+    name = name?.trim();
+    phone = phone?.toString().trim();
+    message = message?.trim();
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
+    // Validation
+    if (!name || !phone || !message) {
+      return Response.json(
+        { success: false, message: "All fields are required" },
+        { status: 400 }
+      );
+    }
+
+    // Strict phone validation (10 digits only)
+    if (!/^\d{10}$/.test(phone)) {
+      return Response.json(
+        { success: false, message: "Phone must be exactly 10 digits" },
+        { status: 400 }
+      );
+    }
+
+    await connectDB();
+
+    const contact = await Contact.create({
+      name,
+      phone,
+      message,
     });
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.RECEIVING_MAIL,
-      subject: "New Contact Form Submission",
-      html: `
-        <h3>New Contact Message</h3>
-        <p>Name: ${name}</p>
-        <p>phone: ${phone}</p>
-        <p>Message: ${message}</p>
-      `
+    return Response.json({
+      success: true,
+      message: "Contact saved successfully",
+      data: {
+        id: contact._id,
+        name: contact.name,
+        phone: contact.phone,
+        createdAt: contact.createdAt,
+      },
     });
 
-    return Response.json({ success: true });
+  } catch (error) {
+    console.error("Contact Save Error:", error);
 
-  } catch (err) {
-    console.log(err)
-    return Response.json({ success: false }, { status: 500 });
+    return Response.json(
+      { success: false, message: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
+}
+
+
+
+// ==========================
+// GET CONTACTS (Admin Only)
+// ==========================
+export async function GET() {
+  try {
+    const cookieStore = cookies();
+    const token = cookieStore.get("adminToken")?.value;
+
+    if (!token) {
+      return Response.json(
+        { success: false, message: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
+    // Verify JWT
+    verifyToken(token);
+
+    await connectDB();
+
+    const contacts = await Contact.find()
+      .sort({ createdAt: -1 })
+      .lean();
+
+    return Response.json({
+      success: true,
+      count: contacts.length,
+      contacts,
+    });
+
+  } catch (error) {
+    return Response.json(
+      { success: false, message: "Unauthorized" },
+      { status: 401 }
+    );
   }
 }
