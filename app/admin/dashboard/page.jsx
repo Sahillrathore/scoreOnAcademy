@@ -19,6 +19,23 @@ export default async function Dashboard() {
   await connectDB();
   const contacts = await Contact.find().sort({ createdAt: -1 }).lean();
 
+  const formatToIST = (dateString) => {
+    const date = new Date(dateString);
+
+    const options = {
+      timeZone: "Asia/Kolkata",
+      day: "numeric",
+      month: "short",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    };
+
+    const formatted = new Intl.DateTimeFormat("en-IN", options).format(date);
+
+    return formatted.replace(",", "").toLowerCase();
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-10">
       <h1 className="text-3xl font-bold mb-8">Contact Submissions</h1>
@@ -40,7 +57,7 @@ export default async function Dashboard() {
                 <td className="p-4">{c.phone}</td>
                 <td className="p-4">{c.message}</td>
                 <td className="p-4">
-                  {new Date(c.createdAt).toLocaleString()}
+                  {formatToIST(c.createdAt)}
                 </td>
               </tr>
             ))}
